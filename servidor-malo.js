@@ -13,12 +13,16 @@ const server = http.createServer(async (req, res) => {
     res.end("Servidor activo")
     return
   }
-
   if (req.url === "/info") {
-    res.writeHead(200, { "Content-Type": "application-json" })
-    res.end("Ruta de información")
-    return
+    const info = {
+    mensaje: "Servidor funcionando correctamente",
+    curso: "Desarrollo de Aplicaciones",
+    tecnologia: "Node.js"
   }
+  res.writeHead(200, { "Content-Type": "application/json" })
+  res.end(JSON.stringify(info))
+  return
+}
   //Cuarto, cree un archivo llamado "datos.json" para que este no generara errores al no poder encontrarlo. 
   //este archivo al inicio se encuentra vacío. 
   if (req.url === "/api/student") {
