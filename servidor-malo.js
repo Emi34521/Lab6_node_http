@@ -38,6 +38,16 @@ const server = http.createServer(async (req, res) => {
     return
   }
 
+  if (req.url === "/api/status") {
+  const status = {
+    ok: true,
+    status: "activo",
+    puerto: PORT
+  }
+  res.writeHead(200, { "Content-Type": "application/json" })
+  res.end(JSON.stringify(status))
+  return
+  }
   res.writeHead(200, { "Content-Type": "text/plain" })
   res.end("Ruta no encontrada")
 })
