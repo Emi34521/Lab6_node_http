@@ -28,6 +28,11 @@ const server = http.createServer(async (req, res) => {
     res.end(JSON.stringify(texto))
     return
   }
+  if (req.url === "/saludo") {
+    res.writeHead(200, { "Content-Type": "text/plain" })
+    res.end("¡Hola, bienvenido. Video especial: https://www.youtube.com/watch?v=3BFTio5296w")
+    return
+  }
 
   res.writeHead(200, { "Content-Type": "text/plain" })
   res.end("Ruta no encontrada")
