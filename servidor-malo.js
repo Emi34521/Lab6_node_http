@@ -48,8 +48,8 @@ const server = http.createServer(async (req, res) => {
   res.end(JSON.stringify(status))
   return
   }
-  res.writeHead(200, { "Content-Type": "text/plain" })
-  res.end("Ruta no encontrada")
+  res.writeHead(404, { "Content-Type": "text/plain" })
+  res.end(`Ruta no encontrada: ${req.url}`)
 })
 //Segundo, cerré esta función para que únicamente haga la parte de crear el server, antes juntaba esto con la parte del listener 
 //Tercero, cerré este listen para que funcionara adecuadamente, además, cambié el mensaje para que indique el puerto correcto. 
